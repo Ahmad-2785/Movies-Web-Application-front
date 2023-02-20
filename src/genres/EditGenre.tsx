@@ -7,9 +7,10 @@ export default function EditGenre () {
   return (
     <>
       <h3>Edit Genre</h3>
-      <GenreForm model={{name:''}} 
-      onSubmit = {(value) => {
+      <GenreForm model={{name:'Action'}} 
+      onSubmit = {async value => {
         //when the form is posted
+        await new Promise(r => setTimeout(r,1));
         console.log(id);
         console.log(value);
       }}

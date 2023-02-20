@@ -8,7 +8,6 @@ import { genreCreationDTO } from './genres.model';
 
 export default function GenreForm (props: genreFormProps) {
   return (
-    <div>
        <Formik
         initialValues={props.model}
         onSubmit={props.onSubmit}
@@ -28,7 +27,6 @@ export default function GenreForm (props: genreFormProps) {
           </Form>
         )}
       </Formik>
-    </div>
   )
 }
 
