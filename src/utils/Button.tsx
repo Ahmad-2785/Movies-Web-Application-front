@@ -1,14 +1,14 @@
 import React from 'react'
 
 export default function Button (props: buttonProps) {
-  return (
-    <button type={props.type}
+  return <button 
+    type={props.type}
     disabled ={props.disabled}
-     className= {props.className}
+    className= {props.className}
     onClick={props.onClick}>
       {props.children}
     </button>
-  )
+  
 }
 
 interface buttonProps {
