@@ -25,7 +25,7 @@ const routes = [
     component: CreateGenre
   },
   {
-    path: "/genres/edit/:id (\\d+)",
+    path: "/genres/edit/:id",
     component: EditGenre
   },
 
@@ -40,7 +40,7 @@ const routes = [
     component: CreateActor
   },
   {
-    path: "/actors/edit/:id (\\d+)",
+    path: "/actors/edit/:id",
     component: EditActor
   },
 
@@ -55,7 +55,7 @@ const routes = [
     component: CreateMovieTheaters
   },
   {
-    path: "/movietheaters/edit/:id (\\d+)",
+    path: "/movietheaters/edit/:id",
     component: EditMovieTheater
   },
   //Movie CRUD
@@ -64,7 +64,7 @@ const routes = [
     component: CreateMovie,
   },
   {
-    path: "/movies/edit/:id (\\d+)",
+    path: "/movies/edit/:id",
     component: EditMovie
   },
   {
