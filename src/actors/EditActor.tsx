@@ -1,19 +1,38 @@
 import React from "react";
+import { urlActors } from "../endpoints";
+import EditEntity from "../utils/EditEntity";
+import { convertActorToFormData } from "../utils/formDataUtils";
 import ActorForm from "./ActorForm";
+import { actorCreationDTO, actorDTO } from "./actors.model";
 
 export default function EditActor() {
+
+  function transform(actor: actorDTO): actorCreationDTO{
+    return {
+      name: actor.name,
+      pictureURL: actor.picture,
+      biography: actor.biography,
+      dateOfBirth: new Date (actor.dateOfBirth)
+    }
+  }
+
   return (
-    <div>
-      <h3>Edit Actor</h3>
-      <ActorForm
-        model={{
-          name: "Tom Holland",
-          dateOfBirth: new Date("1996-06-01T00:00:00"),
-          pictureURL:
-            "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTwvGD7sXP7VpTFGphpnsMaRg90qntyTCIoM7PCheA&usqp=CAE&s",
-        }}
-        onSubmit={(values) => console.log(values)}
-      />
-    </div>
+      <EditEntity<actorCreationDTO, actorDTO>
+        url= {urlActors}
+        indexURL="/actors"
+        entityName="Actor"
+        transformFormData={convertActorToFormData}
+        transform={transform}
+        >
+          {(entity, edit) =>
+          <ActorForm
+            model={entity}
+            onSubmit = {async values =>
+              await edit(values)
+            }
+          />
+
+          }
+      </EditEntity>
   );
 }

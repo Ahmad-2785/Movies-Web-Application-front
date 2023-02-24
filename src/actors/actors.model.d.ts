@@ -1,5 +1,13 @@
 import { Option } from "react-bootstrap-typeahead/types/types";
 
+export interface actorDTO{
+  id: number;
+  name: string;
+  biography: string;
+  dateOfBirth: Date;
+  picture: string;
+}
+
 export interface actorCreationDTO {
   name: string;
   dateOfBirth?: Date;
@@ -8,7 +16,7 @@ export interface actorCreationDTO {
   biography?: string;
 }
 
-export interface actorMovieDTO extends Option {
+export interface actorMovieDTO {
   id: number;
   name: string;
   character: string;
